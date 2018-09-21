@@ -8,10 +8,8 @@ pipeline:
   docker:
     when:
       branch: master
+      event: push
     image: plugins/docker
-    commands:
-      - echo $DOCKER_USERNAME
-      - echo $DOCKER_PASSWORD
     secrets: [ docker_username, docker_password ] # Get converted to UPPERCASE version in Drone
 #    username: ${DOCKER_USERNAME}
 #    password: "${DOCKER_PASSWORD}"
