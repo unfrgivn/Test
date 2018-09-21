@@ -10,9 +10,7 @@ pipeline:
       branch: master
       event: push
     image: plugins/docker
-    secrets: [ docker_username, docker_password ] # Get converted to UPPERCASE version in Drone
-#    username: ${DOCKER_USERNAME}
-#    password: "${DOCKER_PASSWORD}"
+    secrets: [ docker_username, docker_password ] # Stored in Drone admin but not available to pull request events for security
     repo: unfrgivn/drone-client-test #Defaults to Docker Hub
     tags:
       - latest
