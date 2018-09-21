@@ -4,7 +4,9 @@ pipeline:
     commands:
       - npm install
       - npm run test
+      - npm run build
 
+  #Runs only when push to master
   docker:
     when:
       branch: master
