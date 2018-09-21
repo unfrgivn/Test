@@ -1,0 +1,30 @@
+{
+  "name": "drone-test",
+  "version": "1.0.0",
+  "description": "Test ====",
+  "private": true,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unfrgivn/Test.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/unfrgivn/Test/issues"
+  },
+  "homepage": "https://github.com/unfrgivn/Test#readme",
+  "scripts": {
+    "test": "mocha tests/test.js",
+    "build": "webpack --config build/webpack.config.js"
+  },
+  "dependencies": {
+    "axios": "0.18.0",
+    "express": "^4.16.3",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0"
+  }
+}

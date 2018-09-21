@@ -1,0 +1,19 @@
+pipeline:
+  test:
+    image: node:latest
+    commands:
+      - npm install
+      - npm run test
+
+  docker:
+    when:
+      branch: master
+      event: push
+    image: plugins/docker
+    secrets: [ docker_username, docker_password ] # Get converted to UPPERCASE version in Drone
+#    username: ${DOCKER_USERNAME}
+#    password: "${DOCKER_PASSWORD}"
+    repo: unfrgivn/drone-client-test #Defaults to Docker Hub
+    tags:
+      - latest
+      - "${DRONE_COMMIT:0:8}"
