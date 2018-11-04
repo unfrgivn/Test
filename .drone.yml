@@ -38,4 +38,5 @@ pipeline:
     secrets: [ ssh_username, ssh_password ]
     port: 22
     script:
-      - ln -sfn /home/bash/drone-deployments/ci-test.cigsecure.com/${DRONE_COMMIT} /home/bash/drone-deployments/ci-test.cigsecure.com
+      - ln -sfn /home/bash/drone-deployments/ci-test.cigsecure.com/${DRONE_COMMIT} /home/bash/ci-test.cigsecure.com
+      - rm -r `ls /home/bash/drone-deployments/ci-test.cigsecure.com/ -1 | sort -r | tail -n +3`
