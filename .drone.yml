@@ -17,3 +17,25 @@ pipeline:
     tags:
       - latest
       - "${DRONE_COMMIT:0:8}"
+
+  deploy:
+    when:
+      branch: master
+      event: push
+    image: appleboy/drone-scp
+    host: 10.10.10.217
+    secrets: [ ssh_username, ssh_password ]
+    port: 22
+    target: /home/bash/drone-deployments/ci-test.cigsecure.com/${DRONE_COMMIT}
+    source: ./
+
+  deploy-cleanup:
+    when:
+      branch: master
+      event: push
+    image: appleboy/drone-ssh
+    host: 10.10.10.217
+    secrets: [ ssh_username, ssh_password ]
+    port: 22
+    script:
+      - ln -sfn /home/bash/drone-deployments/ci-test.cigsecure.com/${DRONE_COMMIT} /home/bash/drone-deployments/ci-test.cigsecure.com
