@@ -7,16 +7,16 @@ pipeline:
       - npm run build
 
   #Runs only when push to master
-  docker:
-    when:
-      branch: master
-      event: push
-    image: plugins/docker
-    secrets: [ docker_username, docker_password ] # Stored in Drone admin but not available to pull request events for security
-    repo: unfrgivn/drone-client-test #Defaults to Docker Hub
-    tags:
-      - latest
-      - "${DRONE_COMMIT:0:8}"
+  # docker:
+  #   when:
+  #     branch: master
+  #     event: push
+  #   image: plugins/docker
+  #   secrets: [ docker_username, docker_password ] # Stored in Drone admin but not available to pull request events for security
+  #   repo: unfrgivn/drone-client-test #Defaults to Docker Hub
+  #   tags:
+  #     - latest
+  #     - "${DRONE_COMMIT:0:8}"
 
   deploy:
     when:
@@ -39,4 +39,3 @@ pipeline:
     port: 22
     script:
       - ln -sfn /home/bash/drone-deployments/ci-test.cigsecure.com/${DRONE_COMMIT} /home/bash/ci-test.cigsecure.com
-      - rm -r `ls /home/bash/drone-deployments/ci-test.cigsecure.com/ -1 | sort -r | tail -n +3`
