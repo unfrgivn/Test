@@ -13,7 +13,7 @@ describe('Math', () => {
     // Test One: A string explanation of what we're testing
     it('should increment 2 and equal 3', () => {
       // Our actual test: 3*3 SHOULD EQUAL 9
-      assert.equal(increment(1), 3);
+      assert.equal(increment(2), 3);
     });
     // Test Two: A string explanation of what we're testing
     it('should test if (3-4)*8 = -8', () => {
