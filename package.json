@@ -21,7 +21,7 @@
   "dependencies": {
     "axios": "0.18.0",
     "express": "^4.16.3",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.19",
